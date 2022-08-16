@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{CC49FE3A-52B2-44A8-9890-047247832D05}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{186C65A3-597F-4FF1-9BFA-6BCCEC33C252}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,11 +21,15 @@
       DTS:CreationName="OLEDB"
       DTS:DTSID="{0BB91A25-EB3B-4DE1-9524-D28A214E81F1}"
       DTS:ObjectName="AZU-DEV-W10-1.LearningSSIS">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::pDatabase]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::pServer]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=AZU-DEV-W10-1;Initial Catalog=LearningSSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{0BB91A25-EB3B-4DE1-9524-D28A214E81F1}AZU-DEV-W10-1.LearningSSIS;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=LearningSSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{0BB91A25-EB3B-4DE1-9524-D28A214E81F1}AZU-DEV-W10-1.LearningSSIS;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -103,6 +107,27 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B369D08E-FDD7-472B-8443-726195E6A1F7}"
+      DTS:ObjectName="pDatabase"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">LearningSSIS</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{58126336-397A-4B44-B2CC-892D4ECD046A}"
+      DTS:ObjectName="pServer">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">localhost</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
